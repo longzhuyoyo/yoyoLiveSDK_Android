@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/main_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="登录" />
+
+            <Button
+                android:id="@+id/main_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="退出登录" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/holo_green_light"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/main_video_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/main_video_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:checked="true"
+                    android:text="videoView(系统播放器)" />
+
+                <RadioButton
+                    android:id="@+id/main_ijkvideo_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="ijkVideoView" />
+
+                <RadioButton
+                    android:id="@+id/main_ksyvideo_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="金山云播放器" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/main_room_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="获取房间列表" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_enter_room1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="房间跳转" />
+
+                <Button
+                    android:id="@+id/main_enter_room2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="房间跳转2" />
+
+                <EditText
+                    android:id="@+id/main_room_id"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:hint="房间号"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/main_exchange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="充值" />
+
+        <Button
+            android:id="@+id/main_update_user_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="修改用户信息" />
+
+        <Button
+            android:id="@+id/main_share_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="获取分享数据" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/black"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="APP 用户信息"
+            android:gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/userinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"/>
+    </LinearLayout>
+</ScrollView>
