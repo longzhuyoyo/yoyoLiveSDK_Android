@@ -189,21 +189,6 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        findViewById(R.id.main_enter_room2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String roomId = roomIdText.getText().toString();
-                if (TextUtils.isEmpty(roomId)) {
-                    Toast.makeText(MainActivity.this, "房间号不能为空", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Intent intent = new Intent(YoyoApi.mContext, MediaRoomActivity.class);
-                intent.putExtra("uid", roomId);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                YoyoApi.mContext.startActivity(intent);
-            }
-        });
-
         //设置事件回调
         YoyoApi.setEventCallBack(new YoyoEventInterface() {
             @Override

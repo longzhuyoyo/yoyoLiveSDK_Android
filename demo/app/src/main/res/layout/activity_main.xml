@@ -87,13 +87,6 @@
                     android:layout_marginLeft="10dp"
                     android:text="房间跳转" />
 
-                <Button
-                    android:id="@+id/main_enter_room2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="房间跳转2" />
-
                 <EditText
                     android:id="@+id/main_room_id"
                     android:layout_width="150dp"
