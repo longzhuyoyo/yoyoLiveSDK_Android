@@ -16,6 +16,6 @@ public class SimpleApplication extends Application{
         super.onCreate();
         x.Ext.init(this);
         YoyoApi.setTestEnv(true);
-        YoyoApi.init(this, "10001", null);
+        YoyoApi.init(this, "10001", "123456",null);
     }
 }
