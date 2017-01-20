@@ -12,6 +12,7 @@ import tv.danmaku.ijk.media.sample.widget.media.IjkVideoView;
  * Created by caixiaoxiao on 8/10/16.
  */
 public class YoyoIjkVideoView extends YoyoBaseVideoView{
+    public String mVideoUrl;
     public YoyoIjkVideoView(Context context) {
         super(context);
     }
@@ -61,6 +62,12 @@ public class YoyoIjkVideoView extends YoyoBaseVideoView{
 
     @Override
     public void start(String url) {
+        mVideoUrl = url;
+        ((IjkVideoView)mVideoView).rtmpStart(url,null);
+    }
+
+    @Override
+    public void reload(String url) {
         ((IjkVideoView)mVideoView).rtmpStart(url,null);
     }
 
@@ -75,5 +82,10 @@ public class YoyoIjkVideoView extends YoyoBaseVideoView{
         view.stopPlayback();
         view.release(true);
         view.stopBackgroundPlay();
+    }
+
+    @Override
+    public String getVideoUrl() {
+        return mVideoUrl;
     }
 }

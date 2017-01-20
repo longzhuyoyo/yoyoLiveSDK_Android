@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.xutils.x;
 import com.xcyo.simple.R;
-import com.xcyo.yoyo.record.server.YoyoIndexRecord;
+import com.xcyo.yoyo.record.server.YoyoSingerRoomRecord;
 
 import java.util.List;
 
@@ -22,14 +22,14 @@ import java.util.List;
 public class SimpleAdapter extends BaseAdapter {
 
     private Context context;
-    private List<YoyoIndexRecord> list;
+    private List<YoyoSingerRoomRecord> list;
 
-    public SimpleAdapter(Context context , List<YoyoIndexRecord> list){
+    public SimpleAdapter(Context context , List<YoyoSingerRoomRecord> list){
         this.context = context;
         this.list = list;
     }
 
-    public void setList(List<YoyoIndexRecord> list){
+    public void setList(List<YoyoSingerRoomRecord> list){
         if(list!=null){
             this.list.clear();
             this.list.addAll(list);
@@ -37,7 +37,7 @@ public class SimpleAdapter extends BaseAdapter {
         }
     }
 
-    public List<YoyoIndexRecord> getList() {
+    public List<YoyoSingerRoomRecord> getList() {
         return list;
     }
 

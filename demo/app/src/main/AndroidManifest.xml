@@ -25,6 +25,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SingerListActivity" android:screenOrientation="portrait"/>
+
+        <activity android:name=".SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".UserInfoActivity" android:screenOrientation="portrait"/>
+
+
+
+
         <activity android:name="com.xcyo.yoyo.ui.activity.room.MediaRoomActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.xcyo.yoyo.ui.activity.report.ReportActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.xcyo.yoyo.ui.activity.report.other.ReportOtherActivity" android:screenOrientation="portrait"/>

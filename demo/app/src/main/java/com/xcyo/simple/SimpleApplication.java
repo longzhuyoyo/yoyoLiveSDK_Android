@@ -1,8 +1,6 @@
 package com.xcyo.simple;
 
 import android.app.Application;
-import android.os.Build;
-import android.util.Log;
 
 import com.xcyo.sdk.api.YoyoApi;
 import com.xutils.x;
@@ -15,7 +13,8 @@ public class SimpleApplication extends Application{
     public void onCreate() {
         super.onCreate();
         x.Ext.init(this);
+
         YoyoApi.setTestEnv(true);
-        YoyoApi.init(this, "10001", "123456",null);
+        YoyoApi.init(this, "10001", "123456", null);
     }
 }

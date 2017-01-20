@@ -46,6 +46,10 @@ public class AppHelper {
         mOk.add(ok);
     }
 
+    public static void removeOK(Ok ok){
+        mOk.remove(ok);
+    }
+
     public static ExecutorService execut = Executors.newSingleThreadExecutor();
 
     private static void handMainThread(final int tag){
@@ -91,6 +95,14 @@ public class AppHelper {
                 handMainThread(4);
             }
         });
+    }
+
+    static void doLogout(){
+        user.openId = "";
+        user.name = "";
+        user.pwd = "";
+        user.token = "";
+        user.amount = "";
     }
 
     static void exchange(final String count){
