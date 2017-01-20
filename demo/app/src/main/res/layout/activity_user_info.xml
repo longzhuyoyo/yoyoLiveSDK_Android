@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:text="APP 用户信息"/>
+        <TextView
+            android:id="@+id/user_info_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="xxxxxxx"/>
+        <Button
+            android:id="@+id/user_info_exchange"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="17sp"
+            android:text="充值" />
+
+        <Button
+            android:id="@+id/user_info_logout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="17sp"
+            android:text="退出登录" />
+    </LinearLayout>
+</ScrollView>
