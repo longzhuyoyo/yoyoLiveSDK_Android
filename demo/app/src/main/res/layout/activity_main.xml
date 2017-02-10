@@ -69,6 +69,11 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:text="设置" />
-
+        <Button
+            android:id="@+id/main_clear"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:text="清理缓存" />
     </LinearLayout>
 </ScrollView>

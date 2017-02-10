@@ -25,9 +25,7 @@ import com.xcyo.yoyo.record.server.YoyoSharedRecord;
  */
 public class MainActivity extends FragmentActivity {
     public YoyoSharedRecord yoyoSharedRecord;
-    private ListView listView;
-    private SimpleAdapter simpleAdapter;
-    private Button mLoginBtn,mRoomListBtn,mEnterRoomBtn,mShareBtn,mUserInfoBtn,mSettingBtn;
+    private Button mLoginBtn,mRoomListBtn,mEnterRoomBtn,mShareBtn,mUserInfoBtn,mSettingBtn,mClearBtn;
     private EditText mCustomRoomIdText;
 
     @Override
@@ -41,11 +39,11 @@ public class MainActivity extends FragmentActivity {
         mUserInfoBtn = (Button) findViewById(R.id.main_user_info);
         mSettingBtn = (Button) findViewById(R.id.main_setting);
         mCustomRoomIdText = (EditText) findViewById(R.id.main_room_id);
+        mClearBtn = (Button) findViewById(R.id.main_clear);
         mCustomRoomIdText.setText("1012039955");
         setOnClick();
 
-        setAction();
-
+        setCacheText();
         //设置视频播放器
         YoyoApi.setMediaPlayerClazz(KSYVideoView.class);
         //设置事件回调
@@ -56,9 +54,6 @@ public class MainActivity extends FragmentActivity {
                     case YoyoEventLogin:
                         showLoginDialog(frag);
                         break;
-                    case YoyoEventExchange:
-                        goExchange();
-                        break;
                     case YoyoEventShare:
                         showShareInfo(frag);
                         break;
@@ -67,15 +62,15 @@ public class MainActivity extends FragmentActivity {
                 }
             }
         });
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        boolean isLogin = !TextUtils.isEmpty(AppHelper.user.openId);
+        boolean isLogin = YoyoApi.isLogin();
         mLoginBtn.setVisibility(isLogin ? View.GONE : View.VISIBLE);
         mUserInfoBtn.setVisibility(!isLogin ? View.GONE : View.VISIBLE);
+        setCacheText();
     }
 
     private void setOnClick(){
@@ -131,7 +126,7 @@ public class MainActivity extends FragmentActivity {
         mEnterRoomBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String roomId = mCustomRoomIdText.getText().toString();
+                final String roomId = mCustomRoomIdText.getText().toString();
                 YoyoApi.enterRoom(roomId);
             }
         });
@@ -141,6 +136,14 @@ public class MainActivity extends FragmentActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,SettingActivity.class);
                 startActivity(intent);
+            }
+        });
+        //清理缓存
+        mClearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoyoApi.clearCache();
+                setCacheText();
             }
         });
     }
@@ -183,24 +186,11 @@ public class MainActivity extends FragmentActivity {
         alertDialog.show();
     }
 
-    private void goExchange(){
-        Intent mIntent = new Intent(this, ExchangeActivity.class);
-        startActivity(mIntent);
-    }
-
-    void showUser(){
-        mUserInfoBtn.setVisibility(View.VISIBLE);
-        mLoginBtn.setVisibility(View.GONE);
-    }
-
-    private void setAction(){
-        AppHelper.setOk(new AppHelper.Ok() {
-            @Override
-            public void isOk(int tag) {
-                if (tag == 1) {
-                    showUser();
-                }
-            }
-        });
+    /**
+     * 显示缓存大小
+     */
+    private void setCacheText(){
+        long num = YoyoApi.getCacheSize();
+        mClearBtn.setText("清理缓存: "+num);
     }
 }

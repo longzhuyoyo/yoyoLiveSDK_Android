@@ -23,12 +23,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text="xxxxxxx"/>
-        <Button
-            android:id="@+id/user_info_exchange"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="17sp"
-            android:text="充值" />
 
         <Button
             android:id="@+id/user_info_logout"

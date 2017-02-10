@@ -15,6 +15,7 @@ public class SimpleApplication extends Application{
         x.Ext.init(this);
 
         YoyoApi.setTestEnv(true);
-        YoyoApi.init(this, "10001", "123456", null);
+        YoyoApi.setDebugMode(true);
+        YoyoApi.init(this, "10001", "12345", null);
     }
 }

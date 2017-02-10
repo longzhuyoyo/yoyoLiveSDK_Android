@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xcyo.sdk.api.YoyoApi;
@@ -18,40 +18,25 @@ import com.xcyo.sdk.api.request.YoyoServerInterface;
  */
 
 public class LoginActivity extends FragmentActivity {
-    private EditText editUser;
-    private EditText editPw;
+    String openId = "maxiaotao111";
+    String token = "aelOxc-_YIkWUW1dLVEIKF467DWKDeYJzibRHp11v7vCo4o8Q3hKrZug2VQF-" +
+            "doGH1MmS2OS5EY5%0D%0AFPVpTK2EI0vySnngwpBEzKHi-" +
+            "j2_eFuL6uDN3sByN89eGolWP9dv1sLCyGA2lWpjLh4K3gDFmpGo%0D%0AgPC3-SPRVcnZs933698%0D%0A";
     private Button btn_login;
-
-    private AppHelper.Ok ok;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        editUser = (EditText)findViewById(R.id.login_user);
-        editPw = (EditText)findViewById(R.id.login_password);
+        ((TextView)findViewById(R.id.login_openid)).setText("openId : " + openId);
+        ((TextView)findViewById(R.id.login_token)).setText("token : " + token);
         btn_login = (Button) findViewById(R.id.demo_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = editUser.getText().toString();
-                String password = editPw.getText().toString();
-                AppHelper.doLogin(username, password);
+                goLogin();
                 btn_login.setClickable(false);
                 btn_login.setText("正在登录中");
-            }
-        });
-        AppHelper.setOk(ok = new AppHelper.Ok() {
-            @Override
-            public void isOk(int tag) {
-                if (tag == 1) {
-                    //sdk登录
-                    goLogin();
-                } else if (tag == 4) {
-                    Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
-                    btn_login.setClickable(true);
-                    btn_login.setText("登录");
-                }
             }
         });
     }
@@ -60,7 +45,7 @@ public class LoginActivity extends FragmentActivity {
      * sdk登录
      */
     private void goLogin(){
-        YoyoApi.loginYoyo(AppHelper.user.openId, AppHelper.user.token, new YoyoServerInterface<Boolean>() {
+        YoyoApi.loginYoyo(openId, token, new YoyoServerInterface<Boolean>() {
             @Override
             public boolean onOk(Boolean response) {
                 Log.e("YoyoSDK","登录成功");
@@ -83,6 +68,5 @@ public class LoginActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppHelper.removeOK(ok);
     }
 }

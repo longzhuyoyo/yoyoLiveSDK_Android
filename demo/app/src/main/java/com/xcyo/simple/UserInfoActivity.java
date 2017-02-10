@@ -23,39 +23,27 @@ import com.xcyo.sdk.api.request.YoyoServerInterface;
  * Created by caixiaoxiao on 6/1/17.
  */
 public class UserInfoActivity extends FragmentActivity{
+    String openId = "maxiaotao111";
+    String token = "aelOxc-_YIkWUW1dLVEIKF467DWKDeYJzibRHp11v7vCo4o8Q3hKrZug2VQF-" +
+            "doGH1MmS2OS5EY5%0D%0AFPVpTK2EI0vySnngwpBEzKHi-" +
+            "j2_eFuL6uDN3sByN89eGolWP9dv1sLCyGA2lWpjLh4K3gDFmpGo%0D%0AgPC3-SPRVcnZs933698%0D%0A";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
         TextView userInfoContentText = (TextView) findViewById(R.id.user_info_content);
-        AppHelper.User user = AppHelper.user;
         String content = "\n"+
-                "openId : " + user.openId + "\n"+
-                "name : " + user.name + "\n" +
-                "token : " + user.token + "\n"+
-                "amount : " + user.amount;
+                "openId : " + openId + "\n"+
+                "token : " + token + "\n";
 
         userInfoContentText.setText(content);
-
-        //兑换悠币
-        findViewById(R.id.user_info_exchange).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(AppHelper.user.openId)) {
-                    Toast.makeText(UserInfoActivity.this, "未登录", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                goExchange();
-            }
-        });
-
 
         //退出登录
         findViewById(R.id.user_info_logout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppHelper.doLogout();
                 //退出sdk
                 YoyoApi.logoutYoyo(new YoyoServerInterface<Boolean>() {
                     @Override
@@ -74,24 +62,5 @@ public class UserInfoActivity extends FragmentActivity{
                 finish();
             }
         });
-    }
-
-    private void goExchange(){
-        Intent mIntent = new Intent(this, ExchangeActivity.class);
-        startActivity(mIntent);
-    }
-
-    public ArrayMap<String,String> getMap(String alias,String avatar){
-        ArrayMap<String,String> map = new ArrayMap<>();
-        if(!TextUtils.isEmpty(alias)){
-            map.put("alias",alias);
-        }
-        if(!TextUtils.isEmpty(avatar)){
-            map.put("avatar",avatar);
-        }
-        if(!map.isEmpty()){
-            return map;
-        }
-        return null;
     }
 }

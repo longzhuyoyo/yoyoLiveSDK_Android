@@ -25,6 +25,7 @@ public class KSYVideoView extends YoyoBaseVideoView{
     private IMediaPlayer.OnBufferingUpdateListener mBufferingUpdateListener = new IMediaPlayer.OnBufferingUpdateListener() {
         @Override
         public void onBufferingUpdate(IMediaPlayer mp, int percent) {
+
         }
     };
 

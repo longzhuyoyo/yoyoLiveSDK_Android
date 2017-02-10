@@ -7,37 +7,53 @@
     android:padding="10dp"
     android:id="@+id/login_root">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="用户名:"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="用户名:"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="14sp" />-->
 
-    <EditText
-        android:id="@+id/login_user"
+    <!--<EditText-->
+        <!--android:id="@+id/login_user"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="请输入用户名"-->
+        <!--android:textSize="15sp"-->
+        <!--android:text="ceshi008"/>-->
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="密码:"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="14sp" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/login_password"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="请输入密码"-->
+        <!--android:textSize="15sp"-->
+        <!--android:text="123456"/>-->
+    <TextView
+        android:id="@+id/login_openid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入用户名"
-        android:textSize="15sp"
-        android:text="ceshi008"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="密码:"
         android:textColor="@color/black"
-        android:textSize="14sp" />
-
-    <EditText
-        android:id="@+id/login_password"
+        android:textSize="14sp"
+        android:text="openId"/>
+    <TextView
+        android:id="@+id/login_token"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入密码"
-        android:textSize="15sp"
-        android:text="123456"/>
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:text="token"/>
     <Button
         android:id="@+id/demo_login"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:layout_marginTop="10dp"
         android:text="登录"/>
 </LinearLayout>
