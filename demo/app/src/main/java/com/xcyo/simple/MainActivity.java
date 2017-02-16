@@ -25,7 +25,7 @@ import com.xcyo.yoyo.record.server.YoyoSharedRecord;
  */
 public class MainActivity extends FragmentActivity {
     public YoyoSharedRecord yoyoSharedRecord;
-    private Button mLoginBtn,mRoomListBtn,mEnterRoomBtn,mShareBtn,mUserInfoBtn,mSettingBtn,mClearBtn;
+    private Button mLoginBtn,mRoomListBtn,mEnterHotRoomBtn,mEnterRoomBtn,mShareBtn,mUserInfoBtn,mSettingBtn,mClearBtn;
     private EditText mCustomRoomIdText;
 
     @Override
@@ -34,6 +34,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         mLoginBtn = (Button) findViewById(R.id.main_login);
         mRoomListBtn = (Button) findViewById(R.id.main_room_list);
+        mEnterHotRoomBtn = (Button) findViewById(R.id.main_hot_room);
         mEnterRoomBtn = (Button) findViewById(R.id.main_enter_room1);
         mShareBtn = (Button) findViewById(R.id.main_share_data);
         mUserInfoBtn = (Button) findViewById(R.id.main_user_info);
@@ -97,6 +98,14 @@ public class MainActivity extends FragmentActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,SingerListActivity.class);
                 MainActivity.this.startActivity(intent);
+            }
+        });
+
+        //进入热门主播房间
+        mEnterHotRoomBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoyoApi.enterRandomHotRoom(null);
             }
         });
 

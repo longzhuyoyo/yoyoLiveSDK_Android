@@ -35,7 +35,7 @@
 
 
         <!-- yoyoSDK需要配置 start -->
-        <activity android:name="com.xcyo.yoyo.ui.activity.room.MediaRoomActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.xcyo.yoyo.ui.activity.room.MediaRoomActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustNothing"/>
         <activity android:name="com.xcyo.yoyo.ui.activity.report.ReportActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.xcyo.yoyo.ui.activity.report.other.ReportOtherActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.xcyo.yoyo.ui.activity.report.suc.ReportSucActivity" android:screenOrientation="portrait"/>

@@ -31,6 +31,13 @@
             android:layout_marginTop="10dp"
             android:text="获取房间列表" />
 
+        <Button
+            android:id="@+id/main_hot_room"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:text="随机热门主播" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
