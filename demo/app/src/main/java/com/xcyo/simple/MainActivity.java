@@ -3,6 +3,8 @@ package com.xcyo.simple;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
@@ -20,6 +22,8 @@ import com.xcyo.sdk.api.request.YoyoEventInterface;
 import com.xcyo.sdk.api.request.YoyoServerInterface;
 import com.xcyo.simple.simadapter.SimpleAdapter;
 import com.xcyo.yoyo.record.server.YoyoSharedRecord;
+import com.xcyo.yoyo.utils.*;
+
 /**
  * Created by caixiaoxiao on 26/9/16.
  */
@@ -28,6 +32,8 @@ public class MainActivity extends FragmentActivity {
     private Button mLoginBtn,mRoomListBtn,mEnterHotRoomBtn,mEnterRoomBtn,mShareBtn,mUserInfoBtn,mSettingBtn,mClearBtn;
     private EditText mCustomRoomIdText;
 
+
+    private NetworkChangedReceiver mNetworkReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +69,8 @@ public class MainActivity extends FragmentActivity {
                 }
             }
         });
+
+        registerNetworkReceiver();
     }
 
     @Override
@@ -96,7 +104,7 @@ public class MainActivity extends FragmentActivity {
         mRoomListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SingerListActivity.class);
+                Intent intent = new Intent(MainActivity.this, SingerListActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
@@ -143,7 +151,7 @@ public class MainActivity extends FragmentActivity {
         mSettingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SettingActivity.class);
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
                 startActivity(intent);
             }
         });
@@ -200,6 +208,28 @@ public class MainActivity extends FragmentActivity {
      */
     private void setCacheText(){
         long num = YoyoApi.getCacheSize();
-        mClearBtn.setText("清理缓存: "+num);
+        mClearBtn.setText("清理缓存: " + num);
+    }
+
+    @Override
+    protected void onDestroy() {
+        unRegisterNetworkReceiver();
+        super.onDestroy();
+    }
+
+    /***
+     * 监听网络变化
+     */
+    private void registerNetworkReceiver(){
+        mNetworkReceiver = new NetworkChangedReceiver();
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(mNetworkReceiver, filter);
+    }
+
+    /***
+     * 注销网络变化监听
+     */
+    private void unRegisterNetworkReceiver(){
+        unregisterReceiver(mNetworkReceiver);
     }
 }
