@@ -47,6 +47,7 @@ public class SingerListActivity extends FragmentActivity {
                 getList();
             }
         });
+        YoyoApi.reportForClickLiveTab();
     }
 
     private void getList(){
